@@ -6,6 +6,10 @@ public class BallBehaviour : MonoBehaviour
 {
     public bool isThrown = false;
     public bool isFetch = false;
+    //public GameObject player;
+    public Transform player;
+    public Transform dog;
+    //public Transform ball;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +19,9 @@ public class BallBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(player != null)
+        {
+            
+        }
     }
 }

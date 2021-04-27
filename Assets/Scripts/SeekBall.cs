@@ -6,7 +6,7 @@ public class SeekBall : SteeringBehaviour
 {
     private GameObject targetGameObject = null;
     public Vector3 target = Vector3.zero;
-    //public GameObject ball;
+    public GameObject ball;
     //public bool isThrown = false;
 
 
@@ -36,12 +36,17 @@ public class SeekBall : SteeringBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if(ball == null)
+        bool dBall = boid.hasBall;
+        if(dBall == false)
         {
+            targetGameObject = GameObject.FindWithTag("Ball");
+        }
+        if(dBall == true)
+        {
+            targetGameObject = GameObject.FindWithTag("Player");
             ball = GameObject.FindWithTag("Ball");
-            Debug.Log(ball.GetComponent<BallBehaviour>().isThrown);
-        }*/
-        targetGameObject = GameObject.FindWithTag("Ball");
+            ball.GetComponent<Rigidbody>().useGravity = false;
+        }
         if(targetGameObject != null)
         {
             //ball = GameObject.Find("Ball");

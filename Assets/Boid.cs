@@ -20,7 +20,7 @@ public class Boid : MonoBehaviour
     public float maxForce = 10.0f;
     public bool isThrown = true;
     
-
+    public bool hasBall = false;
 
     // Use this for initialization
     void Start()
@@ -36,6 +36,7 @@ public class Boid : MonoBehaviour
 
     public Vector3 SeekForce(Vector3 target)
     {
+        //target.y = 0;
         Vector3 desired = target - transform.position;
         desired.Normalize();
         desired *= maxSpeed;
@@ -108,10 +109,30 @@ public class Boid : MonoBehaviour
             transform.position += velocity * Time.deltaTime;
             velocity *= (1.0f - (damping * Time.deltaTime));
         }
+        GrabBall();
+        returnBall();
+    }
+    void GrabBall()
+    {
         float fetchDistance = Vector3.Distance(GameObject.FindWithTag("Dog").transform.position, GameObject.FindWithTag("Ball").transform.position);
-        if(fetchDistance > 1f)
+        if(fetchDistance > 2f)
         {
-            isThrown = false;
+            //isThrown = false;
+            GameObject.FindWithTag("Ball").transform.position =  GameObject.FindWithTag("Mouth").transform.position;
+            hasBall = true;
+        }
+    }
+
+    void returnBall()
+    {
+        float returnDistance = Vector3.Distance(GameObject.FindWithTag("Dog").transform.position, GameObject.FindWithTag("Player").transform.position);
+        if(hasBall == true)
+        {
+            if(returnDistance < 10f)
+            {
+                hasBall = false;
+            }
+            
         }
     }
 }
