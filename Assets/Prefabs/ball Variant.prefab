@@ -17,6 +17,7 @@ MonoBehaviour:
   speed: 150
   playerPos: {fileID: 0}
   isFetch: 0
+  isThrown: 0
 --- !u!1001 &2381842564367295985
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27,6 +28,10 @@ PrefabInstance:
     - target: {fileID: 3627371103750170129, guid: b471fff3b0213bb4882085e357ee2c4e, type: 3}
       propertyPath: m_Name
       value: ball Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 3627371103750170129, guid: b471fff3b0213bb4882085e357ee2c4e, type: 3}
+      propertyPath: m_TagString
+      value: Ball
       objectReference: {fileID: 0}
     - target: {fileID: 6720044611486261926, guid: b471fff3b0213bb4882085e357ee2c4e, type: 3}
       propertyPath: m_UseGravity

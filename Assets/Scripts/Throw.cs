@@ -8,7 +8,8 @@ public class Throw : MonoBehaviour
     public GameObject ball;
     public float speed = 25.0f;
     public Transform playerPos;
-    //public bool isFetch = false;
+    public bool isFetch = false;
+    public bool isThrown = false;
     private float ballThrowTime = 0f;
     private int numBall = 1;
 
@@ -31,11 +32,14 @@ public class Throw : MonoBehaviour
             ThrowForDog();
             numBall = numBall + 1;
         }
+        //Debug.Log(isThrown);
     }
 
     public void ThrowForDog()
     {
         GameObject b = Instantiate(ball, playerPos.position,playerPos.rotation) as GameObject;
+        b.gameObject.tag = "Ball";
         b.GetComponent<Rigidbody>().AddForce(playerPos.forward * speed, ForceMode.Impulse);
+        isThrown = true;
     }
 }
